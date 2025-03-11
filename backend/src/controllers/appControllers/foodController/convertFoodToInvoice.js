@@ -1,4 +1,4 @@
-const convertQuoteToInvoice = async (req, res) => {
+const convertFoodToInvoice = async (req, res) => {
   return res.status(200).json({
     success: true,
     result: null,
@@ -6,4 +6,4 @@ const convertQuoteToInvoice = async (req, res) => {
   });
 };
 
-module.exports = convertQuoteToInvoice;
+module.exports = convertFoodToInvoice;

@@ -1,19 +1,19 @@
 [
   {
-    "settingCategory": "quote_settings",
-    "settingKey": "quote_show_product_tax",
+    "settingCategory": "food_settings",
+    "settingKey": "food_show_product_tax",
     "settingValue": false,
     "valueType": "boolean"
   },
   {
-    "settingCategory": "quote_settings",
-    "settingKey": "quote_load_default_client",
+    "settingCategory": "food_settings",
+    "settingKey": "food_load_default_client",
     "settingValue": false,
     "valueType": "boolean"
   },
   {
-    "settingCategory": "quote_settings",
-    "settingKey": "quote_status",
+    "settingCategory": "food_settings",
+    "settingKey": "food_status",
     "settingValue": [
       "draft",
       "pending",
@@ -26,9 +26,9 @@
     "valueType": "array"
   },
   {
-    "settingCategory": "quote_settings",
-    "settingKey": "quote_pdf_footer",
-    "settingValue": "Quote was created on a computer and is valid without the signature and seal",
+    "settingCategory": "food_settings",
+    "settingKey": "food_pdf_footer",
+    "settingValue": "Food was created on a computer and is valid without the signature and seal",
     "valueType": "string"
   }
 ]

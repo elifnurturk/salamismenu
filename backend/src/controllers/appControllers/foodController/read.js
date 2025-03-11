@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Model = mongoose.model('Quote');
+const Model = mongoose.model('Food');
 
 const read = async (req, res) => {
   // Find document by id

@@ -1,14 +1,21 @@
 const mongoose = require('mongoose');
 
-const Model = mongoose.model('Quote');
+const Model = mongoose.model('Food');
 
 const custom = require('@/controllers/pdfController');
-const { increaseBySettingKey } = require('@/middlewares/settings');
+
 const { calculate } = require('@/helpers');
 
-const create = async (req, res) => {
+const update = async (req, res) => {
   const { items = [], taxRate = 0, discount = 0 } = req.body;
 
+  if (items.length === 0) {
+    return res.status(400).json({
+      success: false,
+      result: null,
+      message: 'Items cannot be empty',
+    });
+  }
   // default
   let subTotal = 0;
   let taxTotal = 0;
@@ -32,29 +39,23 @@ const create = async (req, res) => {
   body['taxTotal'] = taxTotal;
   body['total'] = total;
   body['items'] = items;
-  body['createdBy'] = req.admin._id;
+  body['pdf'] = 'food-' + req.params.id + '.pdf';
 
-  // Creating a new document in the collection
-  const result = await new Model(body).save();
-  const fileId = 'quote-' + result._id + '.pdf';
-  const updateResult = await Model.findOneAndUpdate(
-    { _id: result._id },
-    { pdf: fileId },
-    {
-      new: true,
-    }
-  ).exec();
-  // Returning successfull response
+  if (body.hasOwnProperty('currency')) {
+    delete body.currency;
+  }
+  // Find document by id and updates with the required fields
 
-  increaseBySettingKey({
-    settingKey: 'last_quote_number',
-  });
+  const result = await Model.findOneAndUpdate({ _id: req.params.id, removed: false }, body, {
+    new: true, // return the new result instead of the old one
+  }).exec();
 
   // Returning successfull response
+
   return res.status(200).json({
     success: true,
-    result: updateResult,
-    message: 'Quote created successfully',
+    result,
+    message: 'we update this document ',
   });
 };
-module.exports = create;
+module.exports = update;

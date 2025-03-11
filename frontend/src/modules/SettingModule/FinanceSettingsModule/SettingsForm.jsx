@@ -9,8 +9,8 @@ const formItems = [
     valueType: 'number',
   },
   {
-    label: 'last_quote_number',
-    settingKey: 'last_quote_number',
+    label: 'last_food_number',
+    settingKey: 'last_food_number',
     valueType: 'number',
   },
   {

@@ -1,24 +1,35 @@
 import NotFound from '@/components/NotFound';
+
 import { ErpLayout } from '@/layout';
-import ReadItem from '@/modules/ErpPanelModule/ReadItem';
+import UpdateItem from '@/modules/ErpPanelModule/UpdateItem';
+import FoodForm from '@/modules/FoodModule/Forms/FoodForm';
 
 import PageLoader from '@/components/PageLoader';
-import { erp } from '@/redux/erp/actions';
 
+import { erp } from '@/redux/erp/actions';
+import useLanguage from '@/locale/useLanguage';
 import { selectReadItem } from '@/redux/erp/selectors';
 import { useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
-export default function ReadQuoteModule({ config }) {
+export default function UpdateFoodModule({ config }) {
   const dispatch = useDispatch();
+
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useLayoutEffect(() => {
     dispatch(erp.read({ entity: config.entity, id }));
   }, [id]);
 
   const { result: currentResult, isSuccess, isLoading = true } = useSelector(selectReadItem);
+
+  useLayoutEffect(() => {
+    if (currentResult) {
+      dispatch(erp.currentAction({ actionType: 'update', data: currentResult }));
+    }
+  }, [currentResult]);
 
   if (isLoading) {
     return (
@@ -30,7 +41,7 @@ export default function ReadQuoteModule({ config }) {
     return (
       <ErpLayout>
         {isSuccess ? (
-          <ReadItem config={config} selectedItem={currentResult} />
+          <UpdateItem config={config} UpdateForm={FoodForm} />
         ) : (
           <NotFound entity={config.entity} />
         )}

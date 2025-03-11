@@ -16,11 +16,11 @@ const routerApp = (entity, controller) => {
   router.route(`/${entity}/filter`).get(catchErrors(controller['filter']));
   router.route(`/${entity}/summary`).get(catchErrors(controller['summary']));
 
-  if (entity === 'invoice' || entity === 'quote' || entity === 'payment') {
+  if (entity === 'invoice' || entity === 'food' || entity === 'payment') {
     router.route(`/${entity}/mail`).post(catchErrors(controller['mail']));
   }
 
-  if (entity === 'quote') {
+  if (entity === 'food') {
     router.route(`/${entity}/convert/:id`).get(catchErrors(controller['convert']));
   }
 };

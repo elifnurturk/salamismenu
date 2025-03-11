@@ -19,21 +19,21 @@ import calculate from '@/utils/calculate';
 import { useSelector } from 'react-redux';
 import SelectAsync from '@/components/SelectAsync';
 
-export default function QuoteForm({ subTotal = 0, current = null }) {
-  const { last_quote_number } = useSelector(selectFinanceSettings);
+export default function FoodForm({ subTotal = 0, current = null }) {
+  const { last_food_number } = useSelector(selectFinanceSettings);
 
-  if (last_quote_number === undefined) {
+  if (last_food_number === undefined) {
     return <></>;
   }
 
-  return <LoadQuoteForm subTotal={subTotal} current={current} />;
+  return <LoadFoodForm subTotal={subTotal} current={current} />;
 }
 
-function LoadQuoteForm({ subTotal = 0, current = null }) {
+function LoadFoodForm({ subTotal = 0, current = null }) {
   const translate = useLanguage();
   const { dateFormat } = useDate();
-  const { last_quote_number } = useSelector(selectFinanceSettings);
-  const [lastNumber, setLastNumber] = useState(() => last_quote_number + 1);
+  const { last_food_number } = useSelector(selectFinanceSettings);
+  const [lastNumber, setLastNumber] = useState(() => last_food_number + 1);
 
   const [total, setTotal] = useState(0);
   const [taxRate, setTaxRate] = useState(0);

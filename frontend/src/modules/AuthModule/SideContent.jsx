@@ -32,7 +32,7 @@ export default function SideContent() {
           Free Open Source ERP / CRM
         </Title>
         <Text>
-          Accounting / Invoicing / Quote App <b /> based on Node.js React.js Ant Design
+          Accounting / Invoicing / Food App <b /> based on Node.js React.js Ant Design
         </Text>
 
         <div className="space20"></div>

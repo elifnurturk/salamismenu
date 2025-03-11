@@ -1,14 +1,14 @@
 import dayjs from 'dayjs';
 import { Tag } from 'antd';
 import { tagColor } from '@/utils/statusTagColor';
-import QuoteDataTableModule from '@/modules/QuoteModule/QuoteDataTableModule';
+import FoodDataTableModule from '@/modules/FoodModule/FoodDataTableModule';
 import { useMoney, useDate } from '@/settings';
 import useLanguage from '@/locale/useLanguage';
 
-export default function Quote() {
+export default function Food() {
   const translate = useLanguage();
   const { dateFormat } = useDate();
-  const entity = 'quote';
+  const entity = 'food';
   const { moneyFormatter } = useMoney();
 
   const searchConfig = {
@@ -92,5 +92,5 @@ export default function Quote() {
     searchConfig,
     deleteModalLabels,
   };
-  return <QuoteDataTableModule config={config} />;
+  return <FoodDataTableModule config={config} />;
 }

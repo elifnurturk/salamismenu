@@ -37,15 +37,15 @@ const invoiceSchema = new mongoose.Schema({
   converted: {
     from: {
       type: String,
-      enum: ['quote', 'offer'],
+      enum: ['food', 'offer'],
     },
     offer: {
       type: mongoose.Schema.ObjectId,
       ref: 'Offer',
     },
-    quote: {
+    food: {
       type: mongoose.Schema.ObjectId,
-      ref: 'Quote',
+      ref: 'Food',
     },
   },
   items: [

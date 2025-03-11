@@ -36,7 +36,7 @@ export default function DashboardModule() {
     onFetch: fetchInvoicesStats,
   } = useOnFetch();
 
-  const { result: quoteResult, isLoading: quoteLoading, onFetch: fetchQuotesStats } = useOnFetch();
+  const { result: foodResult, isLoading: foodLoading, onFetch: fetchFoodsStats } = useOnFetch();
 
   const {
     result: paymentResult,
@@ -53,7 +53,7 @@ export default function DashboardModule() {
 
     if (currency) {
       fetchInvoicesStats(getStatsData({ entity: 'invoice', currency }));
-      fetchQuotesStats(getStatsData({ entity: 'quote', currency }));
+      fetchFoodsStats(getStatsData({ entity: 'food', currency }));
       fetchPayemntsStats(getStatsData({ entity: 'payment', currency }));
     }
   }, [money_format_settings.default_currency_code]);
@@ -96,10 +96,10 @@ export default function DashboardModule() {
       title: translate('Invoices'),
     },
     {
-      result: quoteResult,
-      isLoading: quoteLoading,
-      entity: 'quote',
-      title: translate('quote'),
+      result: foodResult,
+      isLoading: foodLoading,
+      entity: 'food',
+      title: translate('food'),
     },
   ];
 
@@ -135,10 +135,10 @@ export default function DashboardModule() {
             data={invoiceResult?.total}
           />
           <SummaryCard
-            title={translate('Quote')}
+            title={translate('Food')}
             prefix={translate('This month')}
-            isLoading={quoteLoading}
-            data={quoteResult?.total}
+            isLoading={foodLoading}
+            data={foodResult?.total}
           />
           <SummaryCard
             title={translate('paid')}
@@ -185,9 +185,9 @@ export default function DashboardModule() {
           <Col className="gutter-row w-full" sm={{ span: 24 }} lg={{ span: 12 }}>
             <div className="whiteBox shadow pad20" style={{ height: '100%' }}>
               <h3 style={{ color: '#22075e', marginBottom: 5, padding: '0 20px 20px' }}>
-                {translate('Recent Quotes')}
+                {translate('Recent Foods')}
               </h3>
-              <RecentTable entity={'quote'} dataTableColumns={dataTableColumns} />
+              <RecentTable entity={'food'} dataTableColumns={dataTableColumns} />
             </div>
           </Col>
         </Row>

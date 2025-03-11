@@ -7,7 +7,7 @@
   },
   {
     "settingCategory": "finance_settings",
-    "settingKey": "last_quote_number",
+    "settingKey": "last_food_number",
     "settingValue": 0,
     "valueType": "number"
   },
@@ -31,7 +31,7 @@
   },
   {
     "settingCategory": "finance_settings",
-    "settingKey": "quote_prefix",
+    "settingKey": "food_prefix",
     "settingValue": "qot-",
     "valueType": "string"
   },

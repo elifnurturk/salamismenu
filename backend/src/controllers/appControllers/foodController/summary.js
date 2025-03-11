@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const moment = require('moment');
 
-const Model = mongoose.model('Quote');
+const Model = mongoose.model('Food');
 const { loadSettings } = require('@/middlewares/settings');
 
 const summary = async (req, res) => {

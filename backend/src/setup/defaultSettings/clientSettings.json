@@ -51,7 +51,7 @@
   },
   {
     "settingCategory": "client_settings",
-    "settingKey": "quote_default_client_type",
+    "settingKey": "food_default_client_type",
     "settingValue": "company",
     "valueType": "string"
   },

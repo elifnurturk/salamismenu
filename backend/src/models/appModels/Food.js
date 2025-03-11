@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const quoteSchema = new mongoose.Schema({
+const foodSchema = new mongoose.Schema({
   removed: {
     type: Boolean,
     default: false,
@@ -137,5 +137,5 @@ const quoteSchema = new mongoose.Schema({
   },
 });
 
-quoteSchema.plugin(require('mongoose-autopopulate'));
-module.exports = mongoose.model('Quote', quoteSchema);
+foodSchema.plugin(require('mongoose-autopopulate'));
+module.exports = mongoose.model('Food', foodSchema);

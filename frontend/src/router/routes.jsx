@@ -13,10 +13,10 @@ const InvoiceCreate = lazy(() => import('@/pages/Invoice/InvoiceCreate'));
 const InvoiceRead = lazy(() => import('@/pages/Invoice/InvoiceRead'));
 const InvoiceUpdate = lazy(() => import('@/pages/Invoice/InvoiceUpdate'));
 const InvoiceRecordPayment = lazy(() => import('@/pages/Invoice/InvoiceRecordPayment'));
-const Quote = lazy(() => import('@/pages/Quote/index'));
-const QuoteCreate = lazy(() => import('@/pages/Quote/QuoteCreate'));
-const QuoteRead = lazy(() => import('@/pages/Quote/QuoteRead'));
-const QuoteUpdate = lazy(() => import('@/pages/Quote/QuoteUpdate'));
+const Food = lazy(() => import('@/pages/Food/index'));
+const FoodCreate = lazy(() => import('@/pages/Food/FoodCreate'));
+const FoodRead = lazy(() => import('@/pages/Food/FoodRead'));
+const FoodUpdate = lazy(() => import('@/pages/Food/FoodUpdate'));
 const Payment = lazy(() => import('@/pages/Payment/index'));
 const PaymentRead = lazy(() => import('@/pages/Payment/PaymentRead'));
 const PaymentUpdate = lazy(() => import('@/pages/Payment/PaymentUpdate'));
@@ -74,20 +74,20 @@ let routes = {
       element: <InvoiceRecordPayment />,
     },
     {
-      path: '/quote',
-      element: <Quote />,
+      path: '/food',
+      element: <Food />,
     },
     {
-      path: '/quote/create',
-      element: <QuoteCreate />,
+      path: '/food/create',
+      element: <FoodCreate />,
     },
     {
-      path: '/quote/read/:id',
-      element: <QuoteRead />,
+      path: '/food/read/:id',
+      element: <FoodRead />,
     },
     {
-      path: '/quote/update/:id',
-      element: <QuoteUpdate />,
+      path: '/food/update/:id',
+      element: <FoodUpdate />,
     },
     {
       path: '/payment',
